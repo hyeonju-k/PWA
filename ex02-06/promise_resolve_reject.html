@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>promise_resolve_reject</title>
+  </head>
+  <body>
+    <button
+      onclick=" // promise 실행 
+      console.log('Promise 시작!'); 
+      let bStatus= Math.random() > 0.5; 
+      fnCreatePromise(bStatus) 
+      // 비동기 실행으로 결과를 알려 줌. // 동기식 실행이라면 Promise 시작! -> 결과 -> Promise 종료! 순서로 출력되었을 것.
+    .then(pResult=> console.log(pResult)) 
+    .catch(pErrMsg =>console.error(pErrMsg)); 
+    console.log('Promise 종료!');"
+    >
+      상품 배송 시작!
+    </button>
+    <script>
+      function fnCreatePromise(pStatus) {
+        return new Promise((fnResolve, fnReject) => {
+          setTimeout(() => {
+            if (pStatus) fnResolve("상품이 성공적으로 배송되었습니다.");
+            else fnReject("죄송합니다. 상품이 아직 준비되지 못했습니다.");
+          }, 3000);
+        });
+      }
+    </script>
+  </body>
+</html>
