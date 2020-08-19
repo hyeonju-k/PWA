@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hello_vuejs</title>
+    <!-- 뷰 CDN에 연결 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <div id="main">
+      <!-- 머스태시를 사용해 sTitle값을 받아서 HTML의 엘리먼트값으로 변환하여 표시. 렌더링 -->
+      <p>{{ sTitle }}</p>
+      <script>
+        // Vue 객체를 생성해 앱을 초기화하고 시작
+        new Vue({
+          el: "#main",
+          data: {
+            // {{sTitle }}로 데이터값 전달
+            sTitle: "안녕하세요!",
+          },
+        });
+      </script>
+    </div>
+  </body>
+</html>
